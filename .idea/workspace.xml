@@ -20,10 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0426838e-2006-45da-bddc-c6871f4e1cee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/Product/ProductColoection.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/Product/ProductResource.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Product/ProductColoection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Product/ProductCollection.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +172,7 @@
       <option name="presentableId" value="Default" />
       <updated>1603441979198</updated>
       <workItem from="1603441980299" duration="5548000" />
-      <workItem from="1603526529583" duration="4667000" />
+      <workItem from="1603526529583" duration="6295000" />
     </task>
     <servers />
   </component>
@@ -203,6 +202,10 @@
       <screen x="1366" y="0" width="1280" height="994" />
     </state>
     <state x="1775" y="299" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738/1366.0.1280.994@1366.0.1280.994" timestamp="1603444676909" />
+    <state x="1771" y="178" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1603532143262">
+      <screen x="1366" y="0" width="1280" height="994" />
+    </state>
+    <state x="1771" y="178" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738/1366.0.1280.994@1366.0.1280.994" timestamp="1603532143262" />
     <state x="1786" y="252" key="FileChooserDialogImpl" timestamp="1603444398763">
       <screen x="1366" y="0" width="1280" height="994" />
     </state>
