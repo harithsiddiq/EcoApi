@@ -42,7 +42,6 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-        if (isEmpty($product)) return response(['message' => 'not found']);
         return new ProductResource($product);
     }
 
