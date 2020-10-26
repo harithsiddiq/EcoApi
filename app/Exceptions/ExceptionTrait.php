@@ -5,6 +5,7 @@ namespace App\Exceptions;
 
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Prophecy\Argument;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -21,6 +22,10 @@ trait ExceptionTrait
             return $this->HttpResponse();
         }
 
+        if ($this->isArg($e)) {
+            return $this->ArgResponse();
+        }
+
         return parent::render($request, $e);
     }
 
@@ -31,6 +36,11 @@ trait ExceptionTrait
 
     private function isHttps($e){
         return $e instanceof NotFoundHttpException;
+    }
+
+    public function isArg($e)
+    {
+        return $e instanceof \ArgumentCountError;
     }
 
     private function ModelResponse()
@@ -44,6 +54,13 @@ trait ExceptionTrait
     {
         return response()->json([
             'error' => 'Incorrect route'
+        ], Response::HTTP_NOT_FOUND);
+    }
+
+    public function ArgResponse()
+    {
+        return response()->json([
+            'error' => 'Argument Error'
         ], Response::HTTP_NOT_FOUND);
     }
 

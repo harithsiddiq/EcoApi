@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\ProductNotBelongsToUser;
 use App\Http\Requests\ProductRequest;
 use App\Http\Resources\Product\ProductCollection;
 use App\Http\Resources\Product\ProductResource;
@@ -21,7 +22,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        return ProductCollection::collection(Product::get());
+        return ProductCollection::collection(Product::paginate(10));
     }
 
     public function store(ProductRequest $request)
@@ -29,6 +30,7 @@ class ProductController extends Controller
         if ($request->json()) {
             $project = Product::create([
                 "name" => $request->name,
+                "user_id" => auth()->id(),
                 "detail" => $request->description,
                 "price" => $request->price,
                 "stock" => $request->stock,
@@ -47,6 +49,7 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
+        $this->productUserCheck($product);
         if($request->has('description')) {
             $request['detail'] = $request->description;
             unset($request['description']);
@@ -58,11 +61,19 @@ class ProductController extends Controller
 
     public function destroy(Product $product)
     {
+        $this->productUserCheck($product);
         try {
             $product->delete();
             return \response(null, Response::HTTP_NO_CONTENT);
         } catch (\Exception $e) {
             return response($e, 404);
+        }
+    }
+
+    public function productUserCheck($product)
+    {
+        if (auth()->user()->id !== $product->id) {
+            throw new ProductNotBelongsToUser;
         }
     }
 }

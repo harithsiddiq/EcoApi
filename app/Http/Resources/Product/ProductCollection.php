@@ -11,6 +11,7 @@ class ProductCollection extends JsonResource
     {
         return [
             'name' => $this ->name,
+            "owner" => $this->user_id,
             'totalPrise' => $this->discount >0?round((1 - ($this->discount/100))* $this->price, 2):$this->price,
             'discount' => $this->discount.'%',
             'rating' => $this->reviews->count() > 0 ? round($this->reviews->sum('star')/ $this->reviews->count(), 2): 'no review yet',
